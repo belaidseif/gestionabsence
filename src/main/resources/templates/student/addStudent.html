@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<header th:insert="home.html :: header"> </header>
+<h2>Ajouter un etudiant </h2>
+	<form th:action="@{/student/add}" id="postClasse" method="post" th:object="${student}">
+	<label for="nom">Nom: </label>
+ 	<input type="text" name="nom" /><br/>
+ 	<label for="prenom">Prenom: </label>
+ 	<input type="text" name="prenom" /><br/>
+ 	<label for="email">E-mail: </label>
+ 	<input type="text" name="email" /><br/>
+ 	<label for="dateNaissance">Date de naissance: </label>
+ 	<input type="date" name="dateNaissance" /><br/>
+ 	<select name="classe">
+ 	<option th:each="classe : ${classes}" th:value="${classe.id}"  th:text="${classe.fullName}"></option>
+ 	</select><br/>
+ 	<input type="submit" value="Register"/>
+	</form>
+</body>
+</html>

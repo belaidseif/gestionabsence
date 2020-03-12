@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<header th:insert="home.html :: header"> </header>
+<h2><span th:text="${classe.fullName}">LABEL</span><br></h2>
+<ul>
+<div th:each="matiere : ${classe.listMatieres}">
+  <li th:text="${matiere.label}">LABEL</li>
+  <a th:href="|@{/classe/delete/{id}(id=${matiere.id})}|">effacer</a> 
+</div>
+</ul>
+
+<a th:href="|@{/classe/addMatiere/{id}(id=${classe.id})}|">ajouter matiere</a>
+</body>
+</html>

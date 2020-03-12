@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<header th:insert="home.html :: header"> </header>
+	<h2>Liste des matieres</h2>
+	<div th:each="matiere : ${matieres}">
+<span th:text="${matiere.label}">LABEL</span><br>
+ <span th:text="${matiere.nbrHeure}">NbrHeure</span><br/>
+ <a th:href="|@{/matiere/edit/{id}(id=${matiere.id})}|">modifier</a>
+ <a th:href="|@{/matiere/delete/{id}(id=${matiere.id})}|">effacer</a>
+ </div><br>
+ <a th:href="@{matiere/add}">Ajouter une matiere</a>
+ 
+</body>
+</html>

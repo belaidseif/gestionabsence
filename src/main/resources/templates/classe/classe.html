@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<header th:insert="home.html :: header"> </header>
+<form th:action="|@{/classe/{id}(id=${classe.id})}|"  method="post" >
+<select name="week"> 
+<option th:each="week : ${weeks}" th:value="${week}" th:text="${week}"></option>
+</select>
+<input type="submit" value="Register"/>
+</form>
+<h1 th:text="${classe.fullName}"></h1>
+<table>
+<tr>
+  <th></th>
+  <div th:each="matiere: ${matieres}"> 
+  <th>
+  <p th:text="${matiere.label} ">ggg</p>
+  </th>
+  </div>
+  </tr> 
+	<div th:each="sm: ${list}">
+  		<tr>
+  			<th><p th:text="${sm.student.nomPrenom}"></p></th>
+  			<div th:each="map : ${sm.listMatiere}">
+  			<th > <span th:text="${map.value}"></span></th>
+  			</div>
+  
+  		</tr>
+  	</div> 
+</div>
+</table>
+</body>
+</html>

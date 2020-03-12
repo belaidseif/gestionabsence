@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<header th:insert="home.html :: header"> </header>
+<form th:action="|@{/classe/addMatiere/{id}(id=${idClasse})}|" th:object="${form}" method="post" >
+<ul><li th:each="matiere : ${matieres}">
+<div>
+<input name="ids" type="checkbox"  th:value="${matiere.id}"> 
+<label th:text="${matiere.label}"></label>
+</div>
+</li></ul>
+<input type="submit" value="Register"/>
+	</form>
+</body>
+</html>

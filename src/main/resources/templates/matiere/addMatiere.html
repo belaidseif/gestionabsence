@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<header th:insert="home.html :: header"> </header>
+	<h2>Ajouter une matiere </h2>
+	<form th:action="@{/matiere/add}" id="postMatiere" method="post">
+	<label for="label">name: </label>
+ 	<input type="text" name="label" /><br/>
+ 	<label for="nbrHeure">Nombre d'heure: </label>
+ 	<input type="text" name="nbrHeure" /><br/>
+ 	<input type="submit" value="Register"/>
+	</form>
+</body>
+</html>
